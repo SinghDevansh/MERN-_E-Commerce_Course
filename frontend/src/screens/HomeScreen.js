@@ -6,7 +6,8 @@ import { listProducts } from '../actions/productActions'
 import Loader from '../components/Loader'
 import Message from '../components/Message'
 import Paginate from '../components/Paginate'
-
+import ProductCarousel from '../components/ProductCarousel'
+import Meta from '../components/Meta'
 
 
 const HomeScreen = ({ match }) => {
@@ -22,7 +23,10 @@ const HomeScreen = ({ match }) => {
     }, [dispatch, keyword, pageNumber])
    
     return (
-        <Container>
+        <Container className='m-3'>
+            
+            <Meta />
+            {!keyword && <ProductCarousel />}
             <h2 style={{ fontSize: '30px', color: 'red' }}>Latest Products
             <Badge style={{color:'blue'}} variant='secondary'>New</Badge></h2>
             {loading
